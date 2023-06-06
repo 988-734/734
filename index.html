@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>734</title>
+  <style>
+    #main {
+      font-size: 6vw;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: 13vw;
+    }
+      html {
+       background-color: #181a1b !important;
+    }
+    html, body {
+       border-color: #736b5e;
+       color: #e8e6e3;
+    }
+    footer {
+            font-family: Arial, Helvetica, sans-serif;
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+  </style>
 
+<script>
+  // Input the dates
+  var counters = [
+    { startDate: '06/06/2023', counterId: 'thoughts' },
+    { startDate: '06/06/2023', counterId: 'disorders' },
+    { startDate: '06/06/2023', counterId: 'harms' }
+  ];
+
+    function calculateDays(startDate) {
+      var today = new Date();
+      var timeDiff = Math.abs(today.getTime() - startDate.getTime());
+      var dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      return dayDiff;
+    }
+
+    function updateCounter(startDate, counterId) {
+      var days = calculateDays(startDate);
+      document.getElementById(counterId).innerHTML = days;
+    }
+
+    window.onload = function() {
+      for (var i = 0; i < counters.length; i++) {
+        var startDate = new Date(counters[i].startDate);
+        var counterId = counters[i].counterId;
+        updateCounter(startDate, counterId);
+      }
+    };
+</script>
+
+</head>
+<body>
+<div id="main">
+  Days w/o suicidal thoughts: <span id="thoughts"></span>
+  <br>
+  Days w/o eating disorders: <span id="disorders"></span>
+  <br>
+  Days w/o self harm: <span id="harms"></span>
+</div>
+
+<footer>
+  <p>If you are undergoing serious problems like me please consider <a href="https://988.today" target="_blank">getting some help</a></p>
+  <br>
+  <p>&copy; 2023 <a href="https://www.instagram.com/not_mikolaj/" target="_blank">@not_mikolaj</a>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
